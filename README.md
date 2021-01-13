@@ -4,9 +4,9 @@
 
 ## Movie
 
-title:string
-genre:string
-release_date:date
+- title:string
+- genre:string
+- release_date:date
 
 ## Generators
 
