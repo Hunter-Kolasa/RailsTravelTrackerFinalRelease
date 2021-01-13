@@ -14,9 +14,9 @@ release_date:date
 add --no-test-framework in order to skip adding pending test (do this in labs)
 ```
 
-Migration Generator - Generates a migration file
-Model Generator - Generates a model and a migration
-Controller Generator - Generates a controller
+- Migration Generator - Generates a migration file
+- Model Generator - Generates a model and a migration
+- Controller Generator - Generates a controller
 
 ## Rails Flow
 
