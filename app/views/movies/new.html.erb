@@ -1,0 +1,18 @@
+<h1>Create Movies</h1>
+
+<%= form_for @movie do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :genre %>
+    <%= f.text_field :genre %>
+  </div>
+  <div>
+    <%= f.label :release_date %>
+    <%= f.date_field :release_date %>
+  </div>
+
+  <%= f.submit "Create Movie" %>
+<% end %>

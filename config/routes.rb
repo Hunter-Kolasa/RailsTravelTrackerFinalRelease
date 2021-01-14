@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root(to: "static#home")
 
   # Restful Routes for Movies
-  resources :movies, only: [:index, :show]
+  resources :movies
   # get("/movies", to: "movies#index", as: "movies_index") # index
   # get "/movies/new" # new
   # get "/movies/:id" # show
