@@ -1,0 +1,13 @@
+<h1>Create Movies</h1>
+
+<%= form_for @user do |f| %>
+  <div>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+  </div>
+  <%= f.submit "Signup" %>
+<% end %>

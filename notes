@@ -1,0 +1,12 @@
+Validations ? 
+
+
+What are they ? A series of methods that return true or false (boolean) that check for specific things based on the condition you have placed on it. (Example, A Username cannot be blank.)
+
+Why do we use them ? A way to ensure that only proper information will be sent and saved within our DB
+
+What do we use them on?
+
+Validations in active record can only be used on methods that CREATE something. Example ( If you user User.new or User.create user.valid?)
+
+rollback transaction(  which tells you that what you are trying to save was not successful ) user.error.full_messages
