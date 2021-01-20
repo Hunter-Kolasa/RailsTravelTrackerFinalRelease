@@ -4,8 +4,10 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
   end
-
+  #"/movies/1"
+  #link_to "reviews" "/movies/:id/review'
   def show
+    #only knows about the variables that are inside of our URL/Params
   end
 
   def new

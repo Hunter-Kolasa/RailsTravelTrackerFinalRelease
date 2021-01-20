@@ -6,3 +6,9 @@
 <%= link_to "Edit", edit_movie_path(@movie) %>
 
 <%= link_to "Delete", movie_path(@movie), method: "delete" %>
+<%= link_to "Create a Review", new_movie_review_path(@movie) %>
+
+<% @movie.reviews.each do |r| %>
+<h1> Here are your reviews </h1>
+    <h2><%= r.description %> -  <%= r.user.username%> </h2>
+<% end %>

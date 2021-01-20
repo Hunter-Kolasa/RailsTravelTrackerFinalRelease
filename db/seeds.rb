@@ -9,8 +9,6 @@
 Movie.create([
   { title: "Titanic", genre: "Drama", release_date: Date.today },
   { title: "Avengers", genre: "Action", release_date: Date.today },
-  { title: "ET", genre: "Sci-Fi", release_date: Date.today },
-  { title: "Back To The Future", genre: "Sci-Fi", release_date: Date.today },
   { title: "The Matrix", genre: "Sci-Fi", release_date: Date.today },
   { title: "Se7en", genre: "Thriller", release_date: Date.today },
   { title: "Office Space", genre: "Comedy", release_date: Date.today },

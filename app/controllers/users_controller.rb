@@ -6,12 +6,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to movies_path
-    else 
-      render :new
-    end 
+    @user = User.find(params[:user][:id])
+      if @user == nil 
+        render :new
+      else 
+        session[:user_id] = @user.id
+        redirect_to movies_path 
+      end 
   end 
 
 
