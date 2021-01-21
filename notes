@@ -16,3 +16,8 @@ rollback transaction(  which tells you that what you are trying to save was not 
 Nested Routes 
 
 "/movies/2/reviews" 
+
+
+Partials! 
+
+What are Partials ? Is a view layout that allows us to set a default html that can be used through out multiple view files.

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :movies do
     resources :reviews
   end 
+  #/movies/:movie_id/reviews/:id
 
   resources :users, only: [:new,:create]
 

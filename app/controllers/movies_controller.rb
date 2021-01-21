@@ -15,6 +15,7 @@ class MoviesController < ApplicationController
   end
 
   def create
+    binding.pry
     @movie = Movie.new(movie_params)
     if @movie.save
       # what to do if it's valid

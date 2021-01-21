@@ -1,11 +1,5 @@
 <h1>Create a Review</h1>
+<%# /movies/:movie_id/reviews( %>
 
-<%= form_for @review, url:movie_reviews_path(@movie) do |f| %>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-  <%= f.submit "Create a Review" %>
-<% end %>
-
-<form action= movie_reviews_path(@movie) method ="post">
+<%= render partial: 'form', locals: {review: @review, url:movie_reviews_path(@movie)}%>
+<%# <form action= movie_reviews_path(@movie) method ="post"> %>
