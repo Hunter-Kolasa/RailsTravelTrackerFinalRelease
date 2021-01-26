@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
   end
 
   def create
-    binding.pry
+  params
     @movie = Movie.new(movie_params)
     if @movie.save
       # what to do if it's valid
@@ -28,6 +28,7 @@ class MoviesController < ApplicationController
   end
   
   def edit
+
   end
   
   def update
@@ -55,3 +56,5 @@ class MoviesController < ApplicationController
       params.require(:movie).permit(:title, :genre, :release_date)
     end
 end
+
+

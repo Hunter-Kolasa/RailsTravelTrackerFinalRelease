@@ -1,5 +1,5 @@
 <h1>Create a Review</h1>
 <%# /movies/:movie_id/reviews( %>
 
-<%= render partial: 'form', locals: {review: @review, url:movie_reviews_path(@movie)}%>
+<%= render partial: 'form', locals: {review: @review, url:movie_reviews_path(@movie), movie:@movie}%>
 <%# <form action= movie_reviews_path(@movie) method ="post"> %>

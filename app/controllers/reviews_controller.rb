@@ -15,9 +15,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(description:params[:review][:description])
-    @review.user_id =  session[:user_id]
-    @review.movie_id =  params[:movie_id]
+    @review = Review.new(review_params)
     if @review.save
       # /movies/:movie_id/reviews/:id
       redirect_to movie_review_path(params[:movie_id], @review)
@@ -27,9 +25,14 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @review = Review.find(params[:id])
+    @movie = Movie.find(params[:movie_id])
   end
 
   def update
+    @review = Review.find(params[:id])
+    @review.update(review_params)
+    redirect_to movie_path(@review.movie_id)
   end
 
   def destory
@@ -37,6 +40,6 @@ class ReviewsController < ApplicationController
 
   private 
    def review_params
-    permit(:review).require(:description)
+    params.require(:review).permit(:description,:user_id,:movie_id)
    end 
 end

@@ -11,4 +11,5 @@
 <% @movie.reviews.each do |r| %>
 <h1> Here are your reviews </h1>
     <h2><%= r.description %> -  <%= r.user.username%> </h2>
+    <%= link_to "Edit a Review", edit_movie_review_path(@movie.id,r.id) %>
 <% end %>

@@ -1,5 +1,11 @@
 <%= form_for review, url:url do |f| %>
   <div>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+  <div>
+    <%= f.hidden_field :movie_id, :value => movie.id %>
+  </div>
+  <div>
     <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
