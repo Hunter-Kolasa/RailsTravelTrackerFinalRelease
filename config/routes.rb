@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post "/signup", to: "sessions#create"
   
 
-  
+  match '/auth/:google_oauth2/callback' => 'sessions#google', via: [:get,:post]
   # get("/movies", to: "movies#index", as: "movies_index") # index
   # get "/movies/new" # new
   # get "/movies/:id" # show

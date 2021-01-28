@@ -1,5 +1,11 @@
 <h1> Welcome to Movies, Please sign up</h1>
 
+<%if @error %>
+  <% @error.each do |e|%>
+   <h1> <% e%> </h1>
+   <%end %>
+<%end %>
+
 <%= form_for @user, url:signup_path do |f| %>
   <div>
     <%= f.label :username %>
@@ -7,7 +13,7 @@
   </div>
   <div>
     <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </div>
   <%= f.submit "Signup" %>
 <% end %>

@@ -12,12 +12,13 @@
   <body>
     <nav>
       <ul>
-        <li><%= link_to("Home", root_path) %></li>
-        <li><%= link_to("Movies", movies_path) %></li>
-        <li><%= link_to("Create Movie", new_movie_path) %></li>
-        <li><%= link_to("Signup", signup_path) %></li>
-        <li><%= link_to("Login", new_user_path) %></li>
-        <li><%= link_to("Logout", logout_path) %></li>
+          <li><%= link_to("Home", root_path) %></li>
+          <li><%= link_to("Movies", movies_path) %></li>
+          <li><%= link_to("Create Movie", new_movie_path) %></li>
+          <li><%= link_to("Logout", logout_path) %></li>
+          <li><%= link_to("Signup", signup_path) %></li>
+          <li><%= link_to("Login", new_user_path) %></li>
+          <li><%= link_to "Log in with Google", '/auth/google_oauth2', method: :post%> </li>
       </ul>
     </nav>
     <% if flash[:error] %>
