@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "/signup", to: "sessions#signup", as: "signup"
   post "/signup", to: "sessions#create"
   
+
   
   # get("/movies", to: "movies#index", as: "movies_index") # index
   # get "/movies/new" # new

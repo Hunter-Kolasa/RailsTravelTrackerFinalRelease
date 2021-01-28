@@ -9,6 +9,4 @@ class ApplicationController < ActionController::Base
     def logged_in? 
     end 
 
-    def somethign 
-    end 
 end
