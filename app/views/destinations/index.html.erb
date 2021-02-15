@@ -1,0 +1,10 @@
+
+<h1> Our members have been all over! </h1><br>
+<h3> Members have visited: </h3>
+    <ul>
+        <% @destinations.each do |d| %>
+            <li><%= link_to city_state_country(d), destination_path(d) %></li>
+        <% end %>
+    </ul>
+<br>
+

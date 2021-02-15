@@ -1,28 +1,22 @@
 Rails.application.routes.draw do
-  root(to: "static#home")
-
-  # Restful Routes for Movies
-  resources :movies do
-    resources :reviews
-  end 
-  #/movies/:movie_id/reviews/:id
-
-  resources :users, only: [:new,:create]
-
-
   
-  get "/logout", to: "sessions#logout", as: "logout"
-  get "/signup", to: "sessions#signup", as: "signup"
-  post "/signup", to: "sessions#create"
+  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post] 
+  get '/signup' => 'users#new', as: 'signup'
+  post '/signup' => 'users#create'
+  get '/login' => 'sessions#new', as: 'login'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy', as: 'logout'
+
+  resources :users, only: [:new, :create], path_names: {new: 'signup'}
+
+  resources :users do
+    resources :vacations
+  end
   
-
-  match '/auth/:google_oauth2/callback' => 'sessions#google', via: [:get,:post]
-  # get("/movies", to: "movies#index", as: "movies_index") # index
-  # get "/movies/new" # new
-  # get "/movies/:id" # show
-  # get "/movies/:id/edit" # edit
-  # post "/movies" # create
-  # patch "/movies/:id" # update
-  # delete "/movies/:id" # destroy
-
+  post '/destinations/new' => 'destinations#create'
+  resources :vacations
+  resources :destinations
+  root 'destinations#index'
+  
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

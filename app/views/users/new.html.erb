@@ -1,18 +1,27 @@
-<h1>Login</h1>
+<h1 class='text-center'> Sign Up</h1>
+<div class="row">
+  <div class="col-md-4 offset-4">
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= render 'shared/error_messages' %>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, class: 'mb-1 form-control' %>
+        <br>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, class: 'mb-1 form-control' %>
+        <br>
+        <%= f.label :username %>
+        <%= f.text_field :username, class: 'mb-1 form-control' %>
+        <br>
+        <%= f.label :email %>
+        <%= f.text_field :email, class: 'mb-1 form-control' %>
+        <br>
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'mb-1 form-control' %>
+        <br>
+        <%= f.label :password_confirmation, "Confirm Password" %>
+        <%= f.password_field :password_confirmation, class: 'mb-1 form-control' %>
 
-
-<%if @error %>
-  <h1> <%= @error %> </h1>
-<%end %>
-
-<%= form_tag('/users', method: :post) do %>
-  <div>
-    <%= label_tag(:username, "Username") %>
-    <%= text_field_tag :username %>
+        <%= f.submit "Sign Up", class: "mt-2 btn btn-primary" %>
+    <% end %>
   </div>
-  <div>
-   <%= label_tag(:password, "Password") %>
-    <%= password_field_tag :password %>
-  </div>
-  <%= submit_tag("Login") %>
-<% end %>
+</div>

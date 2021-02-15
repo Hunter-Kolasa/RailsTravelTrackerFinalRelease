@@ -1,0 +1,11 @@
+<h1>Hey there, <%= @current_user.first_name %>!</h1><br>
+<h3>Your Vacations:</h3>
+<% @current_user.vacations.each do |v| %>
+    <ul>
+    <li><%= link_to v.title, user_vacation_path(@current_user, v) %></li>
+    
+    <li><%= v.date %></li>
+    <br>
+    </ul>
+<% end %>
+<%= link_to "Add Another Adventure", new_vacation_path %>

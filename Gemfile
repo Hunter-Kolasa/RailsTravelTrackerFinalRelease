@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '2.6.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
@@ -25,9 +25,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'omniauth'
 gem 'dotenv-rails'
-gem 'omniauth-google-oauth2'
+# gem 'omniauth-google-oauth2'
 # gem 'omniauth-github'
-# gem 'omniauth-facebook'
+gem 'omniauth-facebook'
 # gem 'omniauth-twitter'
 gem "omniauth-rails_csrf_protection"
 # Use Active Storage variant
@@ -49,6 +49,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :test do

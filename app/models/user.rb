@@ -1,7 +1,8 @@
 class User < ApplicationRecord
+    has_many :vacations
     has_secure_password
-    has_many :reviews
-    has_many :movies, through: :reviews
-    validates :username, presence: true
-    validates :password, length: {minimum: 6, message:"Are you dumb? Make it more secure!"}
+    accepts_nested_attributes_for :vacations
+    before_save { self.email = email.downcase }
+    validates :email, presence: true, uniqueness: { case_sensitive: false }
+    validates :password, presence: true, length: { minimum: 6 }
 end

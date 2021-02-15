@@ -6,10 +6,3 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Movie.create([
-  { title: "Titanic", genre: "Drama", release_date: Date.today },
-  { title: "Avengers", genre: "Action", release_date: Date.today },
-  { title: "The Matrix", genre: "Sci-Fi", release_date: Date.today },
-  { title: "Se7en", genre: "Thriller", release_date: Date.today },
-  { title: "Office Space", genre: "Comedy", release_date: Date.today },
-])

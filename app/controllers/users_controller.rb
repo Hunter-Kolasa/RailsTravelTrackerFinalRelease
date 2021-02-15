@@ -1,29 +1,33 @@
 class UsersController < ApplicationController
-  skip_before_action :verified_user, only: [:new, :create]
+    before_action :current_user, only: [:show]
+    def new
+        @user = User.new
+    end
 
-  #get request going to render out the user form
-  def new
-    @user = User.new
-  end
+    def create
+        @user = User.new(user_params)
+        if @user.save
+            log_in @user
+            flash[:success] = "Success! Welcome #{@user.first_name}!"
+            redirect_to user_path(@user)
+        else
+            render :new
+        end
+    end
 
-  def create
-    @user = User.find_by(username:params[:username])
-      if !@user
-        @error = "I'm sorry, that username is incorrect"
-        render :new
-      elsif !user.authenticate(params[:password])
-        @error =  "Password was Incorrect"
-        render :new  
-      else 
-        session[:user_id] = @user.id
-        redirect_to movies_path 
-      end 
-  end 
+    def show
+    end
 
+    def edit
+    end
 
-  private 
+    private
 
-  def user_params
-    params.require(:user).permit(:username,:password)
-  end 
+    def user_params
+        params.require(:user).permit(:username, :first_name, :last_name, :email, :password, :password_confirmation,
+            vacation_attributes: [:title, :description, :date, :public])
+    end
+
+    
+
 end

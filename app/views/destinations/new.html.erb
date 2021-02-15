@@ -1,0 +1,14 @@
+<h1>Add A New Destination</h1>
+<%= form_with model: @destination, url: new_destination_path(@destination) do |f| %>
+    <br>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+    <br>
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+    <br>
+    <%= f.label :country %>
+    <%= f.text_field :country %>
+    <br>
+<p><%= f.submit %></p>
+    <% end %> 

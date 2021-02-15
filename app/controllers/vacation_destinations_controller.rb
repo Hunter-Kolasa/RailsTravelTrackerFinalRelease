@@ -1,0 +1,2 @@
+class VacationDestinationsController < ApplicationController
+end

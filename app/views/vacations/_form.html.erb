@@ -1,0 +1,38 @@
+
+<%= form_for @vacation do |f| %>
+    <br>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <br>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <br>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+    <br>
+    <% if @vacation.destinations.ids.include?(id: !nil) %>
+        <h3> Destinations </h3>
+        <ul>
+        <%= @vacation.destinations.each do |d| %>
+            <li><%= d.city  %>, <%= d.country %></li>
+        <% end %>
+        </ul>
+    <% end %>
+    <br>
+    <h4> What stops will you make? </h4>
+    <%= f.fields_for :destinations do |ff| %>
+        <%= ff.label :city %>
+        <%= ff.text_field :city %>
+        <br>
+        <%= ff.label :state %>
+        <%= ff.text_field :state %>
+        <br>
+        <%= ff.label :country %>
+        <%= ff.text_field :country %>
+    <% end %>
+    <p> Need Recommendations? </p>
+    <%= f.collection_check_boxes(:destination_ids, Destination.all, :id, :city)%>
+<p><%= f.submit %></p>
+    <% end %>
+     
+        
