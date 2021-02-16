@@ -29,8 +29,9 @@ class VacationsController < ApplicationController
 
     def update
         @vacation = Vacation.find_by(id: params[:id])
-        
+        destination_params
         if @vacation.update(vacation_params)
+            binding.pry
             redirect_to @vacation
         else
             render :edit
@@ -45,6 +46,6 @@ class VacationsController < ApplicationController
     end
 
     def destination_params
-        @vacation.destination_ids.merge!
+        
     end
 end

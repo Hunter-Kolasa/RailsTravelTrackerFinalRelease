@@ -21,6 +21,25 @@ class SessionsController < ApplicationController
         log_out
         redirect_to root_url
     end
+
+    def google
+      @user = User.find_or_create_by(email: auth["info"]["email"]) do |user|
+        user.password = SecureRandom.hex(10)
+        user.first_name = auth["info"]["first_name"]
+        user.last_name = auth["info"]["last_name"]
+      end
+      if @user && @user.id
+        log_in @user
+        redirect_to @user
+      else
+        redirect_to "/login"
+      end
+    end
   
+    private
+
+    def auth
+      request.env['omniauth.auth']
+    end
 
 end

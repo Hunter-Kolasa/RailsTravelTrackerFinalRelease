@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   
-  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post] 
+  match '/auth/:provider/callback', to: 'sessions#google', via: [:get, :post] 
   get '/signup' => 'users#new', as: 'signup'
   post '/signup' => 'users#create'
   get '/login' => 'sessions#new', as: 'login'
   post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#destroy', as: 'logout'
+  delete '/logout' => 'sessions#destroy', as: 'logout'
 
   resources :users, only: [:new, :create], path_names: {new: 'signup'}
 

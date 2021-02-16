@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:username, :first_name, :last_name, :email, :password, :password_confirmation,
-            vacation_attributes: [:title, :description, :date, :public])
+            vacation_attributes: [:title, :description, :date, :public, :destination_ids])
     end
 
     
