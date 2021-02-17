@@ -10,18 +10,18 @@ class DestinationsController < ApplicationController
     end
 
     def create
-        
         @destination = Destination.new(destination_params)
         if @destination.save
             flash[:success] = "Destination Created!"
+    
             redirect_to destination_path(@destination)
         else
             render :new
         end
-
     end
 
     def show
+        @destination = Destination.find_by(id: params[:id])
     end
 
     def edit

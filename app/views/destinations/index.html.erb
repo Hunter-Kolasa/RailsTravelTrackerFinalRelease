@@ -1,10 +1,13 @@
-
-<h1> Our members have been all over! </h1><br>
+<div class="greet">
+<h1> Let's Go Somewhere! </h1>
 <h3> Members have visited: </h3>
+    <div class="list">
     <ul>
         <% @destinations.each do |d| %>
             <li><%= link_to city_state_country(d), destination_path(d) %></li>
         <% end %>
     </ul>
+    </div>
 <br>
+</div>
 

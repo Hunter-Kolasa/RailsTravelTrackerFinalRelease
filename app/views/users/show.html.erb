@@ -1,11 +1,15 @@
-<h1>Hey there, <%= @current_user.first_name %>!</h1><br>
-<h3>Your Vacations:</h3>
-<% @current_user.vacations.each do |v| %>
-    <ul>
-    <li><%= link_to v.title, user_vacation_path(@current_user, v) %></li>
-    
-    <li><%= v.date %></li>
-    <br>
-    </ul>
-<% end %>
-<%= link_to "Add Another Adventure", new_vacation_path %>
+<div class="greet">
+    <h1>Hey there, <%= @current_user.first_name %>!</h1><br>
+    <h3>Your Vacations:</h3>
+        <div class="list">
+            <ul style="list-style: none;">
+            <% @current_user.vacations.each do |v| %>
+                <li><%= link_to v.title, user_vacation_path(@current_user, v) %></li>
+                <li><%= nice_date(v.date) %></li>
+                <br>
+            <% end %>
+            </ul>
+        </div>
+    <%= link_to "Add Another Adventure", new_vacation_path %>
+    <p><%= link_to "Create New Destination", new_destination_path, class: "button" %></p>
+</div>
