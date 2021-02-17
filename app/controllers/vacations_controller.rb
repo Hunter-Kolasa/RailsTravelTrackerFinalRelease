@@ -7,6 +7,7 @@ class VacationsController < ApplicationController
     def new
         @vacation = Vacation.new
         @vacation.destinations.new
+        
     end
 
     def create
@@ -26,6 +27,8 @@ class VacationsController < ApplicationController
     end
 
     def update
+        update_vacation_destinations
+        
         if @vacation.update(vacation_params)
             redirect_to @vacation
         else
@@ -43,12 +46,12 @@ class VacationsController < ApplicationController
         @vacation = Vacation.find_by(id: params[:id])
     end
 
+    
+
     def authenticate
-        
         unless current_user?(@vacation.user)
           flash[:danger] = "This isn't yours!"
           render :show
         end
       end
-
 end

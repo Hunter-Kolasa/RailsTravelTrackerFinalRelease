@@ -8,7 +8,6 @@ module VacationsHelper
     end
 
     def destinations?
-        binding.pry
         @vacation.destination_ids.any?
     end
 
