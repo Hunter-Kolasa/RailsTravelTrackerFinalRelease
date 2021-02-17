@@ -27,8 +27,8 @@ class VacationsController < ApplicationController
     end
 
     def update
-        update_vacation_destinations
-        
+        @vacation.destination_ids += vacation_params[:destination_ids]
+        @vacation.destination_ids = @vacation.destination_ids.uniq
         if @vacation.update(vacation_params)
             redirect_to @vacation
         else
@@ -39,14 +39,13 @@ class VacationsController < ApplicationController
     private
 
     def vacation_params
-        params.require(:vacation).permit(:title, :description, :date, :public, :destination_ids, destinations_attributes: [:id, :city, :state, :country])
+        params.require(:vacation).permit(:title, :description, :date, :public, destination_ids: [], destinations_attributes: [:id, :city, :state, :country])
     end
 
     def get_vacation
         @vacation = Vacation.find_by(id: params[:id])
     end
 
-    
 
     def authenticate
         unless current_user?(@vacation.user)
