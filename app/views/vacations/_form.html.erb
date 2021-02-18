@@ -31,6 +31,7 @@
         <br>
         <%= ff.label :country %>
         <%= ff.text_field :country %>
+        <br><br>
     <% end %>
     <p> Need Recommendations? </p>
     <%= f.collection_check_boxes(:destination_ids, Destination.all, :id, :city)%>
