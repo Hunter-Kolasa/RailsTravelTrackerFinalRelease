@@ -2,7 +2,7 @@
 <h1> Let's Go Somewhere! </h1>
 <h3> Members have visited: </h3>
     <div class="list">
-    <ul>
+    <ul style="list-style-type:none;">
         <% @destinations.each do |d| %>
             <li><%= link_to city_state_country(d), destination_path(d) %></li>
         <% end %>

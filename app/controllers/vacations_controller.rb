@@ -27,7 +27,7 @@ class VacationsController < ApplicationController
     end
 
     def update
-        @vacation.destination_ids += vacation_params[:destination_ids]
+        
         @vacation.destination_ids = @vacation.destination_ids.uniq
         if @vacation.update(vacation_params)
             redirect_to @vacation
@@ -51,14 +51,22 @@ class VacationsController < ApplicationController
 
     def get_vacation
         @vacation = Vacation.find_by(id: params[:id])
-        
     end
 
+    # def update_destinations
+    #     @vacation.destinations.each do |d|
+    #         unless params[:vacation][:destination_ids].include?(d.id)
+    #             @vacation.destinations.find_by(id: d.id).slice
+    #         end
+    #     end
+        
+    #     @vacation.destination_ids = @vacation.destination_ids.uniq
+    # end
 
     def authenticate
         unless current_user?(@vacation.user)
           flash[:danger] = "This isn't yours!"
           render :show
         end
-      end
+    end
 end

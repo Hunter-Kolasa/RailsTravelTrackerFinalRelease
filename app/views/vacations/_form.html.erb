@@ -6,7 +6,7 @@
     <br>
     <%= f.label :description %>
     <br>
-    <%= f.text_area :description, cols: "30", rows: "10" %><br>
+    <%= f.text_area :description, cols: "50", rows: "10" %><br>
     <br>
     <%= f.label :date %>
     <%= f.date_field :date %>
@@ -14,7 +14,7 @@
     
     <% if update? %>
         <h3> Current Destinations </h3>
-        <ul>
+        <ul style="list-style-type:none;">
         <% @vacation.destinations.each do |d| %>
             <li><%= d.city %></li>
         <% end %>

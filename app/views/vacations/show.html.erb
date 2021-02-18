@@ -3,14 +3,14 @@
 <h3><%= nice_date(@vacation.date) %></h3>
 <p><%= @vacation.description %></p>
 <hr class="style14">
-<ul>
+<ul style="list-style-type:none;">
 <h4>Destinations:</h4>
 <% if destinations? %>
       <% @vacation.destinations.each do |d| %>
          <li> <%= city_state_country(d) %></li><br>
       <% end %>
 <% end %>
-<%= link_to "Edit", edit_user_vacation_path(@vacation) %>
+<%= link_to "Edit", edit_user_vacation_path(@vacation), class: "button" %><br><br>
 
 
 

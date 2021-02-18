@@ -1,5 +1,5 @@
 <div class="greet">
-    <h1>Hey there, <%= current_user.first_name %>!</h1><br>
+    <h1>Hey there, <%= current_user.first_name %>!</h1>
     <h3>Your Vacations:</h3>
         <div class="list">
             <ul style="list-style: none;">
@@ -9,7 +9,7 @@
                 <br>
             <% end %>
             </ul>
-        </div>
-    <%= link_to "Add An Adventure", new_user_vacation_path(current_user) %>
+        </div><br>
+    <%= link_to "Add An Adventure", new_user_vacation_path(current_user) %><br><br>
     <!-- <p><%= link_to "Create New Destination", new_destination_path, class: "button" %></p> -->
 </div>
