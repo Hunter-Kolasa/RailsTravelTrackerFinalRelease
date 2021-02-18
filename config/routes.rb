@@ -1,22 +1,22 @@
 Rails.application.routes.draw do
-  
-  match '/auth/:provider/callback', to: 'sessions#google', via: [:get, :post] 
-  get '/signup' => 'users#new', as: 'signup'
-  post '/signup' => 'users#create'
-  get '/login' => 'sessions#new', as: 'login'
-  post '/login' => 'sessions#create'
-  delete '/logout' => 'sessions#destroy', as: 'logout'
-
-  resources :users, only: [:new, :create], path_names: {new: 'signup'}
-
-  resources :users do
-    resources :vacations
-  end
-  
-  post '/destinations/new' => 'destinations#create'
-  resources :vacations
-  resources :destinations
-  root 'destinations#index'
-  
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # Oauth
+    match '/auth/:provider/callback', to: 'sessions#google', via: [:get, :post]
+  # Standard signup/login
+    get '/signup' => 'users#new', as: 'signup'
+    post '/signup' => 'users#create'
+    get '/login' => 'sessions#new', as: 'login'
+    post '/login' => 'sessions#create'
+    delete '/logout' => 'sessions#destroy', as: 'logout'
+    resources :users, only: [:new, :create], path_names: {new: 'signup'}
+  #route for new destinations separate of vacations
+    post '/destinations/new' => 'destinations#create'
+  #nest routes for users' vacations
+    resources :users do
+      resources :vacations
+    end
+  #**allow access to all routes for vacatiosn and destinations (**streamline)
+    resources :destinations
+    resources :vacations, only: [:new, :show]
+  #specifiy root page '/'
+    root 'destinations#index'
 end

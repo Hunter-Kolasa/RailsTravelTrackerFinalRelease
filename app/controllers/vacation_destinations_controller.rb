@@ -1,2 +1,2 @@
-class VacationDestinationsController < ApplicationController
-end
+# class VacationDestinationsController < ApplicationController
+# end

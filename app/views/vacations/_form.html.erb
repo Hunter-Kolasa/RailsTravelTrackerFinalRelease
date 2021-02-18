@@ -1,5 +1,5 @@
 
-<%= form_for @vacation do |f| %>
+<%= form_for [current_user, @vacation || nil] do |f| %>
     <br>
     <%= f.label :title %>
     <%= f.text_field :title %><br>
@@ -37,7 +37,7 @@
     <%= f.collection_check_boxes(:destination_ids, Destination.all, :id, :city)%>
 <p><%= f.submit %> </p>
 <% if update? %>
-    <p><%= link_to("Remove", @vacation, method: :delete, data: {confirm: "Are you sure?"}, class: "button") %></p>
+    <p><%= link_to("Delete", user_vacation_path(current_user, @vacation), method: :delete, data: {confirm: "Are you sure?"}, class: "button") %></p>
 <% end %>
 <% end %>
 

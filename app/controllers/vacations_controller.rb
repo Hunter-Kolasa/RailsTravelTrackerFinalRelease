@@ -36,6 +36,12 @@ class VacationsController < ApplicationController
         end 
     end
 
+    def destroy
+        @vacation.destinations.clear
+        @vacation.destroy
+        redirect_to current_user
+    end
+
     private
 
     def vacation_params
@@ -44,6 +50,7 @@ class VacationsController < ApplicationController
 
     def get_vacation
         @vacation = Vacation.find_by(id: params[:id])
+        
     end
 
 
