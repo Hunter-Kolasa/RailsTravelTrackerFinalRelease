@@ -9,6 +9,10 @@ class DestinationsController < ApplicationController
         @destination = Destination.new
     end
 
+    def recent_destinations
+        @recent_destinations = Destination.recent_destinations
+    end
+
     def create
         @destination = Destination.new(destination_params)
         if @destination.save

@@ -39,6 +39,7 @@ class VacationsController < ApplicationController
     def destroy
         @vacation.destinations.clear
         @vacation.destroy
+        flash[:success] = "Vacation Deleted!"
         redirect_to current_user
     end
 

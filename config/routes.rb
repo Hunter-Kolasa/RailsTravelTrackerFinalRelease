@@ -10,10 +10,22 @@ Rails.application.routes.draw do
     resources :users, only: [:new, :create], path_names: {new: 'signup'}
   #route for new destinations separate of vacations
     post '/destinations/new' => 'destinations#create'
+  #enter scoped route here
+  
+
+    resources :destinations do
+      collection do
+        get 'recent_destinations', as: 'recent_destinations'
+      end
+    end
+    
+
   #nest routes for users' vacations
     resources :users do
       resources :vacations
     end
+
+    
   #**allow access to all routes for vacatiosn and destinations (**streamline)
     resources :destinations
     resources :vacations, only: [:new, :show]

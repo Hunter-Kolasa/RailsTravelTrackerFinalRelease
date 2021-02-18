@@ -7,5 +7,5 @@ class Vacation < ApplicationRecord
     validates_presence_of :title, :date
     validates_associated :destinations
 
-    # scope :upcoming_vacations, -> { where("date > DateTime.now")}
+    scope :upcoming_vacations, -> { where("date > DateTime.now")}
 end
