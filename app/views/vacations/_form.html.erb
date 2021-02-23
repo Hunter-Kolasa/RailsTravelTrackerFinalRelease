@@ -8,34 +8,19 @@
     <br>
     <%= f.text_area :description, cols: "50", rows: "10" %><br>
     <br>
-    <%= f.label :date %>
-    <%= f.date_field :date %>
     <br>
-    
     <% if update? %>
         <h3> Current Destinations </h3>
         <ul style="list-style-type:none;">
-        <% @vacation.destinations.each do |d| %>
-            <li><%= d.city %></li>
+        <% @vacation.vacation_destinations.each do |vd| %>
+            <li><%= vd.destination.city %></li>
+            <li><%= nice_date(vd.date) %></li><br>
         <% end %>
         </ul>
     <% end %>
     <br>
-    <h4> What stops will you make? </h4>
-    <%= f.fields_for :destinations do |ff| %>
-        <%= ff.label :city %>
-        <%= ff.text_field :city %>
-        <br>
-        <%= ff.label :state %>
-        <%= ff.text_field :state %>
-        <br>
-        <%= ff.label :country %>
-        <%= ff.text_field :country %>
-        <br><br>
-    <% end %>
-    <p> Need Recommendations? </p>
-    <%= f.collection_check_boxes(:destination_ids, Destination.all, :id, :city)%>
 <p><%= f.submit %> </p>
+<%= link_to "Add Destination", new_vacation_vacation_destination_path(@vacation), class: "button" %>
 <% if update? %>
     <p><%= link_to("Delete", user_vacation_path(current_user, @vacation), method: :delete, data: {confirm: "Are you sure?"}, class: "button") %></p>
 <% end %>

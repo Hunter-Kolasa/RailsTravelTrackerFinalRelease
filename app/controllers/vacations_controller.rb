@@ -7,7 +7,6 @@ class VacationsController < ApplicationController
     def new
         @vacation = Vacation.new
         @vacation.destinations.new
-        
     end
 
     def create
@@ -16,6 +15,7 @@ class VacationsController < ApplicationController
             flash[:success] = "Vacation Created!"
             redirect_to @vacation
         else
+            flash.now[:messages] = @vacation.errors.full_messages[0]
             render :new
         end
     end
@@ -32,6 +32,7 @@ class VacationsController < ApplicationController
         if @vacation.update(vacation_params)
             redirect_to @vacation
         else
+            flash.now[:messages] = @vacation.errors.full_messages[0]
             render :edit
         end 
     end
@@ -46,7 +47,7 @@ class VacationsController < ApplicationController
     private
 
     def vacation_params
-        params.require(:vacation).permit(:title, :description, :date, :public, destination_ids: [], destinations_attributes: [:id, :city, :state, :country])
+        params.require(:vacation).permit(:title, :description)
     end
 
     def get_vacation

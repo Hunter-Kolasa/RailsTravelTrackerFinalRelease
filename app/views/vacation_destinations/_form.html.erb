@@ -1,0 +1,22 @@
+<%= form_for @vacation_destination, url: vacation_vacation_destinations_path(@vacation) do |f| %>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+<br>
+<br>
+<h4> What stop will you make? </h4>
+<!-- <h5> Pick a stop: </h5> -->
+<!-- <%= f.collection_select :destination_id, Destination.order(:city), :id, :city %><br> -->
+<!-- <p>Or add a new one</p><br> -->
+    <%= f.fields_for :destinations do |ff| %>
+        <%= ff.label :city %>
+        <%= ff.text_field :city %>
+        <br>
+        <%= ff.label :state %>
+        <%= ff.text_field :state %>
+        <br>
+        <%= ff.label :country %>
+        <%= ff.text_field :country %>
+        <br><br>
+    <% end %>
+<%= f.submit "Add Destination" %>
+<% end %>

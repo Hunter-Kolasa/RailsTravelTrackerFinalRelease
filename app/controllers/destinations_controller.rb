@@ -20,6 +20,7 @@ class DestinationsController < ApplicationController
     
             redirect_to destination_path(@destination)
         else
+            flash.now[:messages] = @destination.errors.full_messages[0]
             render :new
         end
     end

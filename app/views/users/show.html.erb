@@ -5,7 +5,7 @@
             <ul style="list-style: none;">
             <% current_user.vacations.each do |v| %>
                 <li><%= link_to v.title, user_vacation_path(current_user, v) %></li>
-                <li><%= nice_date(v.date) %></li>
+                
                 <br>
             <% end %>
             </ul>
@@ -13,3 +13,4 @@
     <%= link_to "Add An Adventure", new_user_vacation_path(current_user) %><br><br>
     <!-- <p><%= link_to "Create New Destination", new_destination_path, class: "button" %></p> -->
 </div>
+

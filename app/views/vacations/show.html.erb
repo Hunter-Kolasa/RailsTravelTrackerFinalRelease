@@ -1,15 +1,17 @@
 <div class="greet">
 <h1><%= @vacation.title %></h1>
-<h3><%= nice_date(@vacation.date) %></h3>
 <p><%= @vacation.description %></p>
 <hr class="style14">
 <ul style="list-style-type:none;">
 <h4>Destinations:</h4>
 <% if destinations? %>
-      <% @vacation.destinations.each do |d| %>
-         <li> <%= city_state_country(d) %></li><br>
+      <% @vacation.vacation_destinations.each do |vd| %>
+         <li> <%= city_state_country(vd.destination) %></li>
+         <li><%= nice_date(vd.date) %></li><br>
       <% end %>
-<% end %>
+<% else %>
+      <%= link_to "Add Destination", new_vacation_vacation_destination_path(@vacation), class: "button" %>
+<% end %><br>
 <%= link_to "Edit", edit_user_vacation_path(@vacation), class: "button" %><br><br>
 
 

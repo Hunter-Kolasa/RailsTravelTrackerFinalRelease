@@ -11,4 +11,8 @@ module VacationsHelper
         @vacation.destination_ids.any?
     end
 
+    def vacation_destinations?
+        @vacation.vacation_destinations.any?
+    end
+
 end

@@ -25,10 +25,13 @@ Rails.application.routes.draw do
       resources :vacations
     end
 
+    resources :vacations, only: [:new, :show] do
+      resources :vacation_destinations
+    end
+
     
   #**allow access to all routes for vacatiosn and destinations (**streamline)
     resources :destinations
-    resources :vacations, only: [:new, :show]
   #specifiy root page '/'
     root 'destinations#index'
 end
