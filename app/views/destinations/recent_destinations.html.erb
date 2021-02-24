@@ -4,8 +4,8 @@
 <div class="list">
 <ul style="list-style-type:none;">
 <% @recent_destinations.each do |d|%>
-    <li><%= nice_date(d.updated_at) %></li>
     <li><%= city_state_country(d) %></li>
+    <li><small><%= nice_date(d.updated_at) %></small></li>
     <br>
 <% end %>
 </ul>

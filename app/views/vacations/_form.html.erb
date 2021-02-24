@@ -23,7 +23,9 @@
     <% end %>
     <br>
 <p><%= f.submit %> </p>
-<%= link_to "Add Destination", new_vacation_vacation_destination_path(@vacation), class: "button" %>
+<% if @vacation.id %>
+    <%= link_to "Add Destination", new_vacation_vacation_destination_path(@vacation), class: "button" %>
+<% end %>
 <% if update? %>
     <p><%= link_to("Delete", user_vacation_path(current_user, @vacation), method: :delete, data: {confirm: "Are you sure?"}, class: "button") %></p>
 <% end %>

@@ -4,9 +4,9 @@
     <%= f.date_field :date %>
 <br>
 <br>
-<% if vacation_destinations? %>
-    <%= link_to "Delete Plans", vacation_vacation_destination_path(@vacation, @vacation_destination), :method => :delete %>
-    <%= f.submit "Edit Destination" %>
+<% if @vacation_destination.id? %>
+    <%= link_to "Delete", vacation_vacation_destination_path(@vacation, @vacation_destination), :method => :delete, class: "button" %>
+    <%= f.submit "Update Destination" %>
 <% else %>
 <h4> What stop will you make? </h4>
 <!-- <h5> Pick a stop: </h5> -->
