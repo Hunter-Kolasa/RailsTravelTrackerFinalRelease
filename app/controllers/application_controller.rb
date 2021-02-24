@@ -4,4 +4,5 @@ class ApplicationController < ActionController::Base
     include UsersHelper
     include DestinationsHelper
     include VacationsHelper
+    include VacationDestinationsHelper
 end

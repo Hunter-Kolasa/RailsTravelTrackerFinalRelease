@@ -1,8 +1,13 @@
-<%= form_for @vacation_destination, url: vacation_vacation_destinations_path(@vacation) do |f| %>
+
+<%= form_for [@vacation, @vacation_destination] do |f| %>
     <%= f.label :date %>
     <%= f.date_field :date %>
 <br>
 <br>
+<% if vacation_destinations? %>
+    <%= link_to "Delete Plans", vacation_vacation_destination_path(@vacation, @vacation_destination), :method => :delete %>
+    <%= f.submit "Edit Destination" %>
+<% else %>
 <h4> What stop will you make? </h4>
 <!-- <h5> Pick a stop: </h5> -->
 <!-- <%= f.collection_select :destination_id, Destination.order(:city), :id, :city %><br> -->
@@ -15,8 +20,9 @@
         <%= ff.text_field :state %>
         <br>
         <%= ff.label :country %>
-        <%= ff.text_field :country %>
+        <%= ff.text_field :country %> 
         <br><br>
     <% end %>
 <%= f.submit "Add Destination" %>
+<% end %>
 <% end %>

@@ -14,7 +14,10 @@
         <ul style="list-style-type:none;">
         <% @vacation.vacation_destinations.each do |vd| %>
             <li><%= vd.destination.city %></li>
-            <li><%= nice_date(vd.date) %></li><br>
+            <li><%= nice_date(vd.date) %></li>
+            
+            <%= link_to "Edit", edit_vacation_vacation_destination_path(@vacation, vd), class: "button" %>
+            
         <% end %>
         </ul>
     <% end %>

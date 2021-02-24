@@ -47,7 +47,7 @@ class VacationsController < ApplicationController
     private
 
     def vacation_params
-        params.require(:vacation).permit(:title, :description)
+        params.require(:vacation).permit(:title, :description, vacation_destinations_attributes: [:id, :_destroy])
     end
 
     def get_vacation
