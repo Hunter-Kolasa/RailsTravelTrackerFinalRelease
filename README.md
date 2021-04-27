@@ -1,20 +1,12 @@
---------------------------------------
-|  _____                    _         |
-| |_   _| __ __ ___   _____| |        |
-|   | || '__/ _` \ \ / / _ \ |        |
-|   | || | | (_| |\ V /  __/ |        |
-|  _|_||_|  \__,_| \_/ \___|_|        |
-| |_   _| __ __ _  ___| | _____ _ __  |
-|   | || '__/ _` |/ __| |/ / _ \ '__| |
-|   | || | | (_| | (__|   <  __/ |    |
-|   |_||_|  \__,_|\___|_|\_\___|_|    |
----------------------------------------
+TRAVEL TRACKER
        ______________________
        
        =======[README]=======
        ______________________
 
 Welcome to Travel Tracker reimagined using Ruby on Rails!  This app is intended to showcase various Rails concepts using the familiar concept introduced in my past Travel Tracker Sinatra project!  While there are some shortcomings in the app including issues surrounding the many-to-many relationship of Vacations to Destinations and the corresponding form(s), I believe that, with future implementation of Javascript and multiple, MULTIPLE refactors and bugfixes, this app may eventually serve as a functional, potentially even efficient method of keeping track of past and future travels.  
+---[DEMO]---
+https://youtu.be/_h_Al8ysOpQ
 
 ---[Usage]---
 
